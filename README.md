@@ -18,13 +18,13 @@ This library contains a simple vector class with basic functions. The class stor
 
 Code:
 ```kotlin
-  var MyVector: vector2 = vector2(420.0f, 69.0f)
-  println(MyVector)
-  val MyVectorLength = MyVector.length()
-  println(MyVectorLength)
+var MyVector: vector2 = vector2(420.0f, 69.0f)
+println(MyVector)
+val MyVectorLength = MyVector.length()
+println(MyVectorLength)
 ```
 Console output:
 ```
-  (420.0;69.0)
-  414.293374
+(420.0;69.0)
+414.293374
 ```
