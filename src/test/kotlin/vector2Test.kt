@@ -93,6 +93,9 @@ class vector2Test
         assertNotEquals(true, _final_onezero == _final_nullvec)
         assertEquals(true, vector2() == _final_nullvec)
         assertNotEquals(true, _final_nullvec.equals(12))
+
+        assertNotEquals(false, _final_onezero != _final_nullvec)
+        assertEquals(false, vector2() != _final_nullvec)
     }
 
     @Test
@@ -146,7 +149,7 @@ class vector2Test
     fun rotDeg()
     {
         val dummy = _final_onezero
-        dummy.rotRad(90f)
+        dummy.rotDeg(90f)
         assertEquals(true, dummy == _final_onezero)
     }
 }

@@ -171,17 +171,6 @@ class vector2
     }
 
     /**
-     * Represents the vector's coordinates in a fancy way
-     *
-     * Overrides the super's toString method
-     * @return the vector's coordinates such as: (x;y)
-     */
-    override fun toString(): String
-    {
-        return "(${x};${y})"
-    }
-
-    /**
      * Dot product of two vectors
      *
      * @param other the other vector
@@ -235,5 +224,16 @@ class vector2
     fun rotDeg(angle: Float)
     {
         this.rotRad(angle * (1 / _radtodeg))
+    }
+
+    /**
+     * Represents the vector's coordinates in a fancy way
+     *
+     * Overrides the super's toString method
+     * @return the vector's coordinates such as: (x;y)
+     */
+    override fun toString(): String
+    {
+        return "(${x};${y})"
     }
 }
