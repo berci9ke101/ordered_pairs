@@ -1,10 +1,14 @@
+package ordered_pairs
+
 import kotlin.math.*
 
 /**
  * 2D vector class
+ *
+ * Defines a 2D vector class with basic functions
  * @author Kovács Bertalan
  */
-class Vec2
+class vector2
 {
     /*Attributes*/
     /**
@@ -73,9 +77,9 @@ class Vec2
      * @param other the other vector
      * @return the sum of the two vectors
      */
-    operator fun plus(other: Vec2): Vec2
+    operator fun plus(other: vector2): vector2
     {
-        return Vec2(this.x + other.x, this.y + other.y)
+        return vector2(this.x + other.x, this.y + other.y)
     }
 
     /**
@@ -84,7 +88,7 @@ class Vec2
      * Adds the value of the right operand to a variable and assigns the result to the variable
      * @param other the other vector
      */
-    operator fun plusAssign(other: Vec2)
+    operator fun plusAssign(other: vector2)
     {
         this.x += other.x
         this.y += other.y
@@ -97,9 +101,9 @@ class Vec2
      * @param other the other vector
      * @return the difference of the two vectors
      */
-    operator fun minus(other: Vec2): Vec2
+    operator fun minus(other: vector2): vector2
     {
-        return Vec2(this.x - other.x, this.y - other.y)
+        return vector2(this.x - other.x, this.y - other.y)
     }
 
     /**
@@ -108,7 +112,7 @@ class Vec2
      * Subtracts the value of the right operand to a variable and assigns the result to the variable
      * @param other the other vector
      */
-    operator fun minusAssign(other: Vec2)
+    operator fun minusAssign(other: vector2)
     {
         this.x -= other.x
         this.y -= other.y
@@ -121,9 +125,9 @@ class Vec2
      * @param other the scalar
      * @return the product of a vector and a scalar
      */
-    operator fun times(other: Float): Vec2
+    operator fun times(other: Float): vector2
     {
-        return Vec2(this.x * other, this.y * other)
+        return vector2(this.x * other, this.y * other)
     }
 
 
@@ -139,9 +143,26 @@ class Vec2
         this.y *= other
     }
 
+    /**
+     * Operator **==**
+     *
+     * Decides whether two vectors are equal
+     * @param other the object we want to compare to
+     * @return the logical value
+     */
+    override operator fun equals(other: Any?): Boolean
+    {
+        if (other !is vector2)
+        {
+            return false
+        }
+        return x == other.x && y == other.y
+    }
+
     /*Methods*/
     /**
      * Length of a vector
+     *
      * @return the length of the vector
      */
     fun length(): Float
@@ -150,12 +171,23 @@ class Vec2
     }
 
     /**
+     * Represents the vector's coordinates in a fancy way
+     *
+     * Overrides the super's toString method
+     * @return the vector's coordinates such as: (x;y)
+     */
+    override fun toString(): String
+    {
+        return "(${x};${y})"
+    }
+
+    /**
      * Dot product of two vectors
      *
      * @param other the other vector
      * @return the dot product
      */
-    fun dot(other: Vec2): Float
+    fun dot(other: vector2): Float
     {
         return (x * other.x + y * other.y)
     }
@@ -166,7 +198,7 @@ class Vec2
      * @param other the other vector
      * @return the smaller angle of two vectors in radians
      */
-    fun angleRad(other: Vec2): Float
+    fun angleRad(other: vector2): Float
     {
         return acos(this.dot(other) / (this.length() * other.length()))
     }
@@ -177,7 +209,7 @@ class Vec2
      * @param other the other vector
      * @return the smaller angle of two vectors in degrees
      */
-    fun angleDeg(other: Vec2): Float
+    fun angleDeg(other: vector2): Float
     {
         return acos(this.dot(other) / (this.length() * other.length())) * _radtodeg
     }
