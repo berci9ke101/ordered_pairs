@@ -43,14 +43,17 @@ class vector2
 
     /*Constructors*/
     /**
-     * Default constructor
+     * Parameterized constructor
      *
-     * Sets the vector's default values to 0.0
+     * Sets the vector's values to the given values
+     *
+     * @param x the X coordinate of the vector
+     * @param y the Y coordinate of the vector
      */
-    constructor()
+    constructor(x: Float = 0.0f, y: Float = 0.0f)
     {
-        this.x = 0.0f
-        this.y = 0.0f
+        this.x = x
+        this.y = y
     }
 
     /**
@@ -59,15 +62,7 @@ class vector2
      * @param x the X coordinate of the vector
      * @param y the Y coordinate of the vector
      */
-    constructor(x: Float?, y: Float?) : this()
-    {
-        if (!(x == null || y == null))
-        {
-            this.x = x
-            this.y = y
-        }
-    }
-
+    constructor(x: Float?, y: Float?) : this(x ?: 0.0f, y ?: 0.0f)
 
     /*Operators*/
     /**
