@@ -8,7 +8,8 @@ import kotlin.math.*
  * Defines a 2D vector class with basic functions
  * @author Kovács Bertalan
  */
-class Vector2 {
+class Vector2
+{
     /*Attributes*/
     /**
      * Variable for the first (x) coordinate
@@ -31,7 +32,8 @@ class Vector2 {
     /**
      * Helps to convert radians to degrees
      */
-    companion object {
+    companion object
+    {
         private const val radtodeg: Float = 180.0f / PI.toFloat()
     }
 
@@ -44,7 +46,8 @@ class Vector2 {
      * @param x the X coordinate of the vector
      * @param y the Y coordinate of the vector
      */
-    constructor(x: Float = 0.0f, y: Float = 0.0f) {
+    constructor(x: Float = 0.0f, y: Float = 0.0f)
+    {
         this.x = x
         this.y = y
     }
@@ -73,7 +76,8 @@ class Vector2 {
      * Adds the value of the right operand to a variable and assigns the result to the variable
      * @param other the other vector
      */
-    operator fun plusAssign(other: Vector2) {
+    operator fun plusAssign(other: Vector2)
+    {
         this.x += other.x
         this.y += other.y
     }
@@ -93,7 +97,8 @@ class Vector2 {
      * Subtracts the value of the right operand to a variable and assigns the result to the variable
      * @param other the other vector
      */
-    operator fun minusAssign(other: Vector2) {
+    operator fun minusAssign(other: Vector2)
+    {
         this.x -= other.x
         this.y -= other.y
     }
@@ -113,7 +118,8 @@ class Vector2 {
      * Multiples the vector with the scalar
      * @param other the scalar
      */
-    operator fun timesAssign(other: Float) {
+    operator fun timesAssign(other: Float)
+    {
         this.x *= other
         this.y *= other
     }
@@ -125,8 +131,10 @@ class Vector2 {
      * @param other the object we want to compare to
      * @return the logical value
      */
-    override operator fun equals(other: Any?): Boolean {
-        if (other !is Vector2) {
+    override operator fun equals(other: Any?): Boolean
+    {
+        if (other !is Vector2)
+        {
             return false
         }
         return x - other.x < 0.0001f && y - other.y < 0.0001f
@@ -169,7 +177,8 @@ class Vector2 {
      *
      * @param angle the angle in radians
      */
-    fun rotRad(angle: Float) {
+    fun rotRad(angle: Float)
+    {
         val setx = (x * cos(angle) - (y * sin(angle)))
         val sety = (x * sin(angle) + (y * cos(angle)))
         x = (round(setx * 1_000_000) / 1_000_000)
@@ -190,4 +199,17 @@ class Vector2 {
      * @return the vector's coordinates such as: (x;y)
      */
     override fun toString(): String = "(${x};${y})"
+
+
+    /**
+     * The hashCode of the vector
+     *
+     * @return the vector object's hashcode
+     */
+    override fun hashCode(): Int
+    {
+        var result = x.hashCode()
+        result = 31 * result + y.hashCode()
+        return result
+    }
 }
